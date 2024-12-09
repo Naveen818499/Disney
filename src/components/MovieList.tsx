@@ -35,7 +35,7 @@ export const MovieList = ({genereId,indx}:any) => {
     ${indx % 3==0?'mt-[70px]' : 'mt-[180px]'} `}
     onClick={()=>sliderLeft(elementref.current)}
     />
-    <div ref={elementref} className={' flex overflow-x-auto gap-8 scrollbar-hide cursor-pointer pt-5 px-3 pb-10 transition-all duration-150 ease-in scroll-smooth'}>
+    <div ref={elementref} className={' flex overflow-x-auto gap-8 scrollbar-hide cursor-pointer pt-5 px-3 pb-4 transition-all duration-150 ease-in scroll-smooth'}>
       {movie.map((item, index)=>(
         <>
              {indx%3==0?<HrMovieCard key={index} movie={item} />:<MovieCard key={index} movie={item}/>}

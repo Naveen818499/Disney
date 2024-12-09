@@ -7,7 +7,7 @@ export const GeneresMovieList=()=> {
     <div >
       {SelectTypeMovie.generes.slice(0,8).map((item, indx)=>{
         return(
-            <div className={'p-8 px-8 md:px-16'} key={indx} >
+            <div className={'p-4 px-8 md:px-16'} key={indx} >
             <h2 className={'text-[20px] text-white font-bold '}>{item.name}</h2>
              <MovieList genereId={item.id} indx={indx} />
         </div>
