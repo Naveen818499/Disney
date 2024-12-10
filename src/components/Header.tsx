@@ -41,18 +41,17 @@ export default function Header() {
   const [togle,setToggle] = useState(false)
   return (
     <div className={"flex items-center justify-between p-5"}>
-      <div className={"flex gap-8 items-center"}>
+      <div className={"flex gap-[20px] right-0 xs:gap-[20px]  items-center sm:gap-8"}>
         <img
           src={logo}
           alt="Disney Logo"
-          className="w-[45px] h-[45px] md:w-[70px] object-cover logo-res"
-        />
-        <div className={"hidden md:flex gap-8"}>
+          className="w-[35px] h-[35px] lg:w-[45px] lg:h-[45px] md:w-[60px] object-cover logo-res" />
+        <div className={"hidden md:flex gap-2 lg:gap-8 "}>
           {menu.map((item) => (
             <HeaderItems name={item.name} Icon={item.icon} />
           ))}
         </div>
-        <div className={"flex md:hidden gap-8"}>
+        <div className={"flex md:hidden gap-2 sm:gap-8 "}>
           {/* menu.slice(0,3  ) */}
           {menu.map(
             (item, index) =>
@@ -62,7 +61,7 @@ export default function Header() {
         <div className={"md:hidden"} onClick={()=>setToggle(!togle)}>
           <HeaderItems key={''} name={""} Icon={HiDotsVertical}/>
 
-         {togle ? <div className={"absolute mt-2 bg-black border-[1px] p-3"}>
+         {togle ? <div className={"absolute mt-[10px] bg-black border-[1px] p-3 right-5 sm:mt-2 "}>
             {/* menu.slice(3) */}
             {menu.map(
               (item, index) =>
