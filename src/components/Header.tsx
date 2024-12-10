@@ -45,7 +45,7 @@ export default function Header() {
         <img
           src={logo}
           alt="Disney Logo"
-          className="w-[45px] h-[45px] md:w-[70px] object-cover"
+          className="w-[45px] h-[45px] md:w-[70px] object-cover logo-res"
         />
         <div className={"hidden md:flex gap-8"}>
           {menu.map((item) => (

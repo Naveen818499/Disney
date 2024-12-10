@@ -10,6 +10,8 @@ interface Movie {
 export default function Slider() {
   const [movieList,setMovieList]=useState<Movie[]>([]);
   const elementref = useRef<HTMLDivElement | null>(null);
+  const [disableLeft, setDisableLeft] = useState(true);
+  const [disableRight, setDisableRight] = useState(false);
     useEffect(()=>{
       getTrendMovies();
 
@@ -24,19 +26,27 @@ export default function Slider() {
       });
     }
     const sliderLeft=(ele:any)=>{
-      ele.scrollLeft-=screenWidth-35
+      ele.scrollLeft-=screenWidth-35;
+      setDisableLeft(elementref.current?.scrollLeft === 0);
+      setDisableRight(false);
    }
     const sliderRight=(ele:any)=>{
-      ele.scrollLeft+=screenWidth-35
+      ele.scrollLeft+=screenWidth-35;
+      if (elementref.current && elementref.current.scrollWidth <= elementref.current.scrollLeft + elementref.current.clientWidth) {
+        setDisableRight(true);  
+      }
+      setDisableLeft(false);
     }
   return (
     <div>
-      <HiOutlineChevronLeft className={'text-white text-[30px] absolute mx-8 mt-[180px] cursor-pointer hidden md:block '}
-      onClick={()=>sliderLeft(elementref.current)}
-      />
+      {!disableLeft && (
+        <HiOutlineChevronLeft className={'text-white text-[30px] absolute mx-8 mt-[180px] cursor-pointer hidden md:block '}
+      onClick={()=>sliderLeft(elementref.current)}/>
+       )}
+      {!disableRight && (
       < HiOutlineChevronRight className={'text-white text-[30px] absolute mx-8 mt-[180px] cursor-pointer right-0 hidden md:block'}
       onClick={()=>sliderRight(elementref.current)}
-      />
+      />)}
     <div className={'flex overflow-x-auto w-full px-5 py-5 scrollbar-hide scroll-smooth'} ref={elementref}>
       {movieList.map((item, indx)=>{
         return(
