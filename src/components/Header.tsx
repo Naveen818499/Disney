@@ -41,17 +41,17 @@ export default function Header() {
   const [togle,setToggle] = useState(false)
   return (
     <div className={"flex items-center justify-between p-5"}>
-      <div className={"flex gap-[20px] right-0 xs:gap-[20px]  items-center sm:gap-8"}>
+      <div className={"flex gap-[20px] sm:gap-[30px] right-0 xs:gap-[20px]  items-center"}>
         <img
           src={logo}
           alt="Disney Logo"
-          className="w-[35px] h-[35px] lg:w-[45px] lg:h-[45px] md:w-[60px] object-cover logo-res" />
+          className="w-[50px] h-[30px] sm:w-[35px]  lg:w-[80px] md:w-[60px] object-cover" />
         <div className={"hidden md:flex gap-2 lg:gap-8 "}>
           {menu.map((item) => (
             <HeaderItems name={item.name} Icon={item.icon} />
           ))}
         </div>
-        <div className={"flex md:hidden gap-2 sm:gap-8 "}>
+        <div className={"flex md:hidden gap-4 sm:gap-8 "}>
           {/* menu.slice(0,3  ) */}
           {menu.map(
             (item, index) =>
